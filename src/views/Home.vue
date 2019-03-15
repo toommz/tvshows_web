@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <section class="hero is-medium is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Start searching your favorites tv shows
+          </h1>
+
+          <h2 class="subtitle">
+            then track your progress, schedule your watchings and more!
+          </h2>
+
+          <TheShowSearch />
+        </div>
+      </div>
+    </section>
+
+    <TvShowsList />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import TheShowSearch from "@/components/TheShowSearch.vue";
+import TvShowsList from "@/components/TvShowsList.vue";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    TheShowSearch,
+    TvShowsList
   }
 };
 </script>

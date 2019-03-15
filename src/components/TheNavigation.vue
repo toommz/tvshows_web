@@ -20,7 +20,6 @@
     <div v-bind:class="{ 'is-active': isActive }" class="navbar-menu">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
-        <router-link to="/about" class="navbar-item">About</router-link>
       </div>
     </div>
   </nav>
@@ -41,3 +40,9 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.router-link-exact-active {
+  color: hsl(271, 100%, 71%);
+}
+</style>
