@@ -3,7 +3,7 @@
     <article class="media">
       <div v-if="show.image" class="media-left">
         <figure class="image is-64x64">
-          <img v-bind:src="show.image.medium" alt="Image" />
+          <img v-bind:src="imageURL" alt="Image" />
         </figure>
       </div>
       <div class="media-content">
@@ -30,6 +30,13 @@
 <script>
 export default {
   name: "TvShowsListCard",
-  props: ["show"]
+  props: ["show"],
+  computed: {
+    imageURL: {
+      get() {
+        return this.show.image.medium.replace("http", "https");
+      }
+    }
+  }
 };
 </script>
