@@ -25,23 +25,26 @@
 </template>
 
 <script>
-import { search } from "@/utils/api.js";
-
 export default {
   name: "TheShowSearch",
-  data: function() {
-    return {
-      searchTerm: "",
-      isLoading: false
-    };
+  computed: {
+    isLoading: {
+      get() {
+        return this.$store.state.isLoading;
+      }
+    },
+    searchTerm: {
+      get() {
+        return this.$store.state.searchTerm;
+      },
+      set(value) {
+        this.$store.commit("updateSearchTerm", value);
+      }
+    }
   },
   methods: {
-    onSubmit: async function() {
-      this.isLoading = true;
-      const searchResults = await search(this.searchTerm);
-      this.isLoading = false;
-
-      this.$store.commit("replaceSearchResults", searchResults);
+    onSubmit: function() {
+      this.$store.dispatch("onSearchShowSubmit");
     }
   }
 };

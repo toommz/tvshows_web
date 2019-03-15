@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import { fetchShow } from "@/utils/api.js";
-
 export default {
   name: "tv-show",
   props: ["id"],
@@ -38,11 +36,8 @@ export default {
       show: null
     };
   },
-  mounted: async function() {
-    const show =
-      this.$store.getters.currentShow(this.id) || (await fetchShow(this.id));
-
-    this.show = show;
+  created: async function() {
+    this.show = await this.$store.dispatch("getCurrentShow", this.id);
   }
 };
 </script>
