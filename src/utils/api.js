@@ -1,4 +1,4 @@
-const baseURL = "http://api.tvmaze.com";
+const baseURL = "https://api.tvmaze.com";
 
 async function search(term) {
   const url = `${baseURL}/search/shows?q=${term}`;
